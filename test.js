@@ -1,5 +1,6 @@
-
+const range = [2, 3, 4, 5]
 
 test('Integer range contains', ()=>{
-    expect(Range.contain([2,4,5])).toContain([2, 3, 4])
+    const range1 = [2, 3, 4]
+    expect(Range.contain(range)).toContain([2, 3, 4])
 })
