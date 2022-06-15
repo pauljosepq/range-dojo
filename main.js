@@ -11,7 +11,12 @@ class Range {
             }
         }
     }
+
+    getallpoints (range){
+        return range
+    }
 }
+
 
 module.exports = {
     Range,
