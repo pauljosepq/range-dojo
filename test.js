@@ -1,6 +1,6 @@
-const range = [2, 3, 4, 5]
+import { Range, range } from "./main"
 
 test('Integer range contains', ()=>{
     const range1 = [2, 3, 4]
-    expect(Range.contain(range)).toContain([2, 3, 4])
+    expect(Range.contain(range, range1)).toBeTruthy()
 })
