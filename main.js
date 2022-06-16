@@ -21,6 +21,10 @@ class Range {
         endPoints.push(this.range.slice(-1).pop())
         return endPoints
     }
+
+    Equals(arr){
+        return JSON.stringify(arr) === JSON.stringify(this.range)
+    }
 }
 
 
