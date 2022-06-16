@@ -65,3 +65,23 @@ test('get end points [3,6]', () => {
     const r4 = new Range([3, 4 , 5, 6])
     expect(r4.getEndPoints()).toStrictEqual([3, 6])
 })
+
+test('Equal [3,4]', () => {
+    const ra = new Range([3, 4])
+    expect(ra.Equals()).toBeTruthy()
+})
+
+test('Not Equal [3,4]', () => {
+    const ra2 = new Range([2, 3, 4, 5, 6, 7, 8, 9])
+    expect(ra2.Equals()).toBeFalsy()
+})
+
+test('Not Equal [2,4]', () => {
+    const ra3 = new Range([3, 4, 5, 6, 7, 8, 9])
+    expect(ra3.Equals()).toBeFalsy()
+})
+
+test('Not Equal [3,4]', () => {
+    const ra4 = new Range([2, 3, 4, 5, 6, 7, 8, 9])
+    expect(ra4.Equals()).toBeFalsy()
+})
