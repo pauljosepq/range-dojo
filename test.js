@@ -14,28 +14,31 @@ test('Integer range not contains', () => {
 })
 
 test('Range not contains [7, 9]', () => {
-    const arr = [-1, 1, 6, 10]
+    const arr = [7, 8, 9]
     expect(r.contains(arr)).toBeFalsy()
 })
 
 test('Range not contains [3, 9]', () => {
-    const arr = [-1, 1, 6, 10]
+    const arr = [3, 4, 5, 6 ,7 ,8, 9]
     expect(r.contains(arr)).toBeFalsy()
 })
 
 test('Range not contains [2, 9]', () => {
-    const arr = [-1, 1, 6, 10]
-    expect(r.contains(arr)).toBeFalsy()
+    const r1 = new Range([3, 4])
+    const arr = [2, 3, 4, 5, 6, 7, 8, 9]
+    expect(r1.contains(arr)).toBeFalsy()
 })
 
 test('Range contains [3, 5]', () => {
-    const arr = [-1, 1, 6, 10]
-    expect(r.contains(arr)).toBeTruthy()
+    const ran = new Range([3, 4, 5])
+    const arr = [3, 4, 5]
+    expect(ran.contains(arr)).toBeTruthy()
 })
 
 test('Range contains [3, 4]', () => {
-    const arr = [-1, 1, 6, 10]
-    expect(r.contains(arr)).toBeTruthy()
+    const rang = new Range([2, 3, 4, 5, 6, 7, 8, 9])
+    const arr = [3, 4]
+    expect(rang.contains(arr)).toBeTruthy()
 })
 
 test('get all points', () => {
