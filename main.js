@@ -15,9 +15,11 @@ class Range {
         return this.range
     }
 
-    getEndPoint(){
+    getEndPoints(){
         let endPoints = [];
-        this.range[0]
+        endPoints.push(this.range[0])
+        endPoints.push(this.range.slice(-1).pop())
+        return endPoints
     }
 }
 
