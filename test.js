@@ -20,20 +20,20 @@ test('get all points', () => {
 
 test('get end points', () => {
     
-    expect(r.getEndPoints()).toBe([2, 5])
+    expect(r.getEndPoints()).toStrictEqual([2, 5])
 })
 
 test('get end points', () => {
-    
-    expect(r.getEndPoints()).toBe([2, 6])
+    const r2 = new Range([2, 3, 4 , 5, 6])
+    expect(r.getEndPoints()).toStrictEqual([2, 6])
 })
 
 test('get end points', () => {
-    
-    expect(r.getEndPoints()).toBe([3, 5])
+    const r3 = new Range([3, 4 , 5])
+    expect(r.getEndPoints()).toStrictEqual([3, 5])
 })
 
 test('get end points', () => {
-    
-    expect(r.getEndPoints()).toBe([3, 6])
+    const r4 = new Range([3, 4 , 5, 6])
+    expect(r.getEndPoints()).toStrictEqual([3, 6])
 })
