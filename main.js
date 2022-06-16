@@ -1,24 +1,27 @@
-const range = [2, 3, 4, 5]
-
 class Range {
     
-    contains(range, arr){
-        for (let index = 0; index < arr.length; index++) {
-            if (range.includes(arr[index])) {
-                return true
-            }else{
-                return false
-            }
-        }
+    constructor(range){
+        this.range = range
     }
 
-    getallpoints (range){
-        return range
+    contains(arr){
+        for (let index = 0; index < arr.length; index++) {
+            if (!this.range.includes(arr[index])) return false
+        }
+        return true
+    }
+
+    getAllPoints (){
+        return this.range
+    }
+
+    getEndPoint(){
+        let endPoints = [];
+        this.range[0]
     }
 }
 
 
 module.exports = {
-    Range,
-    range
+    Range
 }
