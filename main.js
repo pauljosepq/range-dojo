@@ -31,7 +31,8 @@ class Range {
         return true
     }
 
-    contains(arr){
+    containsRange(s, e){
+        
         
         return true
     }

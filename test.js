@@ -18,7 +18,7 @@ test('Range not contains [7, 10)', () => {
     const r1 = new Range(range1)
     const range2 = '[7, 10)'
     const r2 = new Range(range2)
-    expect(r1.contains(r2.range)).toBeFalsy()
+    expect(r1.containsRange(r2.start, r2.end)).toBeFalsy()
 })
 
 test('Range not contains [3, 10)', () => {
@@ -26,7 +26,7 @@ test('Range not contains [3, 10)', () => {
     const r1 = new Range(range1)
     const range2 = '[3, 10)'
     const r2 = new Range(range2)
-    expect(r1.contains(r2.range)).toBeFalsy()
+    expect(r1.containsRange(r2.start, r2.end)).toBeFalsy()
 })
 
 test('Range not contains [2, 10)', () => {
@@ -34,7 +34,7 @@ test('Range not contains [2, 10)', () => {
     const r1 = new Range(range1)
     const range2 = '[2, 10)'
     const r2 = new Range(range2)
-    expect(r1.contains(r2.range)).toBeFalsy()
+    expect(r1.containsRange(r2.start, r2.end)).toBeFalsy()
 })
 
 test('Range contains [3, 5]', () => {
@@ -42,7 +42,7 @@ test('Range contains [3, 5]', () => {
     const r1 = new Range(range1)
     const range2 = '[3, 5]'
     const r2 = new Range(range2)
-    expect(r1.contains(r2.range)).toBeTruthy()
+    expect(r1.containsRange(r2.start, r2.end)).toBeTruthy()
 })
 
 test('Range contains [3, 5)', () => {
@@ -50,7 +50,7 @@ test('Range contains [3, 5)', () => {
     const r1 = new Range(range1)
     const range2 = '[3, 5)'
     const r2 = new Range(range2)
-    expect(r1.contains(r2.range)).toBeTruthy()
+    expect(r1.containsRange(r2.start, r2.end)).toBeTruthy()
 })
 
 test('get all points', () => {
