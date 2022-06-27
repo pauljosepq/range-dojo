@@ -2,8 +2,8 @@ class Range {
     
     constructor(range){
         this.range = range
-        let start = trimmedString.slice(1, this.range.indexOf(','))
-        let end = trimmedString.slice(this.range.indexOf(',') + 1, -1)
+        let start = parseInt(trimmedString.slice(1, this.range.indexOf(',')))
+        let end = parseInt(trimmedString.slice(this.range.indexOf(',') + 1, -1))
         let trimmedString = range.trim()
     }
 
@@ -19,16 +19,20 @@ class Range {
         }
     }
 
-    validation(){
-        if () {
-            
+    isCorrect(){
+        if (start > end) {
+            throw new Error('The end is greater than the beginning')
         }
+
+        if (!Number.isInteger(start) || !Number.isInteger(end)){
+            throw new Error('A non-integer value was given')
+        }
+
+        return true
     }
 
     contains(arr){
-        for (let index = 0; index < arr.length; index++) {
-            if (!this.range.includes(arr[index])) return false
-        }
+        
         return true
     }
 
