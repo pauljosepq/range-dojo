@@ -1,10 +1,11 @@
 class Range {
+
+    static start = parseInt(trimmedString.slice(1, this.range.indexOf(',')))
+    static end = parseInt(trimmedString.slice(this.range.indexOf(',') + 1, -1))
+    static trimmedString = range.trim()
     
     constructor(range){
         this.range = range
-        let start = parseInt(trimmedString.slice(1, this.range.indexOf(',')))
-        let end = parseInt(trimmedString.slice(this.range.indexOf(',') + 1, -1))
-        let trimmedString = range.trim()
     }
 
     parse()
@@ -31,10 +32,16 @@ class Range {
         return true
     }
 
+    contains(){
+        
+    }
+
     containsRange(s, e){
+        if(start <= s && end >= e){
+            return true
+        }
         
-        
-        return true
+        return false
     }
 
     getAllPoints (){
