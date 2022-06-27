@@ -38,52 +38,59 @@ test('Range not contains [2, 10)', () => {
 })
 
 test('Range contains [3, 5]', () => {
-    const ran = new Range([3, 4, 5])
-    const arr = [3, 4, 5]
-    expect(ran.contains(arr)).toBeTruthy()
+    const range1 = '[2, 10)'
+    const r1 = new Range(range1)
+    const range2 = '[3, 5]'
+    const r2 = new Range(range2)
+    expect(r1.contains(r2.range)).toBeTruthy()
 })
 
-test('Range contains [3, 4]', () => {
-    const rang = new Range([2, 3, 4, 5, 6, 7, 8, 9])
-    const arr = [3, 4]
-    expect(rang.contains(arr)).toBeTruthy()
+test('Range contains [3, 5)', () => {
+    const range1 = '[3, 5]'
+    const r1 = new Range(range1)
+    const range2 = '[3, 5)'
+    const r2 = new Range(range2)
+    expect(r1.contains(r2.range)).toBeTruthy()
 })
 
 test('get all points', () => {
     
-    expect(r.getAllPoints()).toBe(range)
+    expect(r.getAllPoints()).toStrictEqual([2, 3, 4, 5])
 })
 
-test('get end points [2,5]', () => {
+test('get end points [2,6)', () => {
     
     expect(r.getEndPoints()).toStrictEqual([2, 5])
 })
 
 test('get end points [2,6]', () => {
-    const r2 = new Range([2, 3, 4 , 5, 6])
+    const range1 = '[2, 6]'
+    const r2 = new Range(range1)
     expect(r2.getEndPoints()).toStrictEqual([2, 6])
 })
 
-test('get end points [3,5]', () => {
-    const r3 = new Range([3, 4 , 5])
+test('get end points (2, 6)', () => {
+    const range1 = '(2, 6)'
+    const r3 = new Range(range1)
     expect(r3.getEndPoints()).toStrictEqual([3, 5])
 })
 
-test('get end points [3,6]', () => {
-    const r4 = new Range([3, 4 , 5, 6])
+test('get end points (2,6]', () => {
+    const range1 = '(2, 6]'
+    const r4 = new Range(range1)
     expect(r4.getEndPoints()).toStrictEqual([3, 6])
 })
 
-test('Equal [3,4]', () => {
-    const ra = new Range([3, 4])
-    const arr = [3, 4]
-    expect(ra.Equals(arr)).toBeTruthy()
+test('Equal [3, 5)', () => {
+    const r1 = new Range('[3, 5)')
+    const r2 = new Range('[3, 5)')
+    expect(r1.Equals(r2)).toBeTruthy()
 })
 
 test('Not Equal [2, 9]', () => {
-    const ra2 = new Range([2, 3, 4, 5, 6, 7, 8, 9])
-    const arr = [3, 4]
-    expect(ra2.Equals(arr)).toBeFalsy()
+    const r1 = new Range('[3, 5)')
+    const r2 = new Range('[3, 5)')
+    expect(r1.Equals(r2)).toBeFalsy()
 })
 
 test('Not Equal [2,4]', () => {
