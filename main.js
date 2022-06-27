@@ -2,9 +2,27 @@ class Range {
     
     constructor(range){
         this.range = range
-        let start;
-        let end;
-        let trimmedString;
+        let start = trimmedString.slice(1, this.range.indexOf(','))
+        let end = trimmedString.slice(this.range.indexOf(',') + 1, -1)
+        let trimmedString = range.trim()
+    }
+
+    parse()
+
+    parse(){
+        if(this.range[0] == '('){
+            start += 1
+        }
+
+        if(this.range.slice(-1) == ')'){
+            start -= 1
+        }
+    }
+
+    validation(){
+        if () {
+            
+        }
     }
 
     contains(arr){
