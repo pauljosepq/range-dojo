@@ -87,20 +87,20 @@ test('Equal [3, 5)', () => {
     expect(r1.Equals(r2)).toBeTruthy()
 })
 
-test('Not Equal [2, 9]', () => {
-    const r1 = new Range('[3, 5)')
+test('Not Equal [2, 10)', () => {
+    const r1 = new Range('[2, 10)')
     const r2 = new Range('[3, 5)')
     expect(r1.Equals(r2)).toBeFalsy()
 })
 
-test('Not Equal [2,4]', () => {
-    const ra3 = new Range([3, 4, 5, 6, 7, 8, 9])
-    const arr = [2, 4, 5]
-    expect(ra3.Equals(arr)).toBeFalsy()
+test('Not Equal [2, 5)', () => {
+    const r1 = new Range('[2, 5)')
+    const r2 = new Range('[3, 10)')
+    expect(r1.Equals(r2)).toBeFalsy()
 })
 
-test('Not Equal [3,4]', () => {
-    const ra4 = new Range([2, 3, 4, 5, 6, 7, 8, 9])
-    const arr = [3, 4]
-    expect(ra4.Equals(arr)).toBeFalsy()
+test('Not Equal [3, 10)', () => {
+    const r1 = new Range('[3, 5)')
+    const r2 = new Range('[3, 10)')
+    expect(r1.Equals(r2)).toBeFalsy()
 })

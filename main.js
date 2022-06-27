@@ -2,6 +2,9 @@ class Range {
     
     constructor(range){
         this.range = range
+        let start;
+        let end;
+        let trimmedString;
     }
 
     contains(arr){
