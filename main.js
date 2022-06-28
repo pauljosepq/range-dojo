@@ -1,14 +1,11 @@
 class Range {
 
-    static start = parseInt(trimmedString.slice(1, this.range.indexOf(',')))
-    static end = parseInt(trimmedString.slice(this.range.indexOf(',') + 1, -1))
-    static trimmedString = range.trim()
-    
     constructor(range){
         this.range = range
+        this.trimmedString = range.trim()
+        this.start = parseInt(this.trimmedString.slice(1, this.range.indexOf(',')))
+        this.end = parseInt(this.trimmedString.slice(this.range.indexOf(',') + 1, -1))
     }
-
-    parse()
 
     parse(){
         if(this.range[0] == '('){
@@ -36,7 +33,7 @@ class Range {
         let numbers = []
         let commas = arr.match(/,/g).length
         for (let i = 0; i <= commas; i++){
-            numbers.push(parseInt(trimmedString.slice(1, this.range.indexOf(',')))) 
+            arr.indexOf(',') === -1 ? numbers.push(parseInt(arr.slice(0, arr.indexOf(',')))) : numbers.push(parseInt(arr.slice(0, arr.length)))
             arr = arr.slice(arr.indexOf(',') + 1, arr.length)
         }
 
