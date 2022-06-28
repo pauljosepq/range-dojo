@@ -32,8 +32,14 @@ class Range {
         return true
     }
 
-    contains(){
-        
+    contains(arr){
+        let numbers = []
+        let commas = arr.match(/,/g).length
+        for (let i = 0; i <= commas; i++){
+            numbers.push(parseInt(trimmedString.slice(1, this.range.indexOf(',')))) 
+            arr = arr.slice(arr.indexOf(',') + 1, arr.length)
+        }
+
     }
 
     containsRange(s, e){
