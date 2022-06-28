@@ -5,28 +5,28 @@ class Range {
         this.trimmedString = range.trim()
         this.start = parseInt(this.trimmedString.slice(1, this.range.indexOf(',')))
         this.end = parseInt(this.trimmedString.slice(this.range.indexOf(',') + 1, -1))
+        this.parse()
+        this.isCorrect()
     }
 
     parse(){
         if(this.range[0] == '('){
-            start += 1
+            this.start += 1
         }
 
         if(this.range.slice(-1) == ')'){
-            start -= 1
+            this.end -= 1
         }
     }
 
     isCorrect(){
-        if (start > end) {
+        if (this.start > this.end) {
             throw new Error('The end is greater than the beginning')
         }
 
-        if (!Number.isInteger(start) || !Number.isInteger(end)){
+        if (!Number.isInteger(this.start) || !Number.isInteger(this.end)){
             throw new Error('A non-integer value was given')
         }
-
-        return true
     }
 
     contains(arr){
@@ -36,11 +36,17 @@ class Range {
             arr.indexOf(',') === -1 ? numbers.push(parseInt(arr.slice(0, arr.indexOf(',')))) : numbers.push(parseInt(arr.slice(0, arr.length)))
             arr = arr.slice(arr.indexOf(',') + 1, arr.length)
         }
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] < this.start || numbers[i] > this.end) {
+                return false
+            }
+        }
 
+        return true
     }
 
     containsRange(s, e){
-        if(start <= s && end >= e){
+        if(this.start <= s && this.end >= e){
             return true
         }
         
@@ -53,8 +59,8 @@ class Range {
 
     getEndPoints(){
         let endPoints = [];
-        endPoints.push(this.range[0])
-        endPoints.push(this.range.slice(-1).pop())
+        endPoints.push(this.start)
+        endPoints.push(this.end)
         return endPoints
     }
 
