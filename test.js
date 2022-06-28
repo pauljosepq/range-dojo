@@ -3,18 +3,19 @@ const range = '[2, 6)'
 const r = new Range(range)
 
 test('Missing start', ()=>{
+    expect(() => new Range('2, 6)')).toThrowError(new Error('The beginning of the range must be ( or ['))
+})
 
-        expect(() => new Range('2, 6)')).toThrowError(new Error('The beginning of the range must be ( or ['))
+test('Non-interger value', ()=>{
+    expect(() => new Range('(a, 6)')).toThrowError(new Error('A non-integer value was given'))
+})
+
+test('Start greater than the end', ()=>{
+    expect(() => new Range('(9, 6)')).toThrowError(new Error('The beginning is greater than the end'))
 })
 
 test('Missing end', ()=>{
-    const arr = '2, 4'
-    expect(r.contains(arr)).toBeTruthy()
-})
-
-test('Integer range contains', ()=>{
-    const arr = '2, 4'
-    expect(r.contains(arr)).toBeTruthy()
+    expect(() => new Range('(2, 6')).toThrowError(new Error('The end of the range must be ) or ]'))
 })
 
 test('Integer range contains', ()=>{

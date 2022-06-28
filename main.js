@@ -23,19 +23,20 @@ class Range {
         if (this.trimmedString[0] !== '(' && this.trimmedString[0] !== '['){
             throw new Error('The beginning of the range must be ( or [')
         }
+
+        if (this.trimmedString[this.trimmedString.length -1] !== ')' && this.trimmedString[this.trimmedString.length -1] !== ']'){
+            throw new Error('The end of the range must be ) or ]')
+
+        }
         
         if (Number.isNaN(this.start) || Number.isNaN(this.end)){
             throw new Error('A non-integer value was given')
         }
 
         if (this.start > this.end) {
-            throw new Error('The end is greater than the beginning')
+            throw new Error('The beginning is greater than the end')
         }
 
-        if (this.trimmedString[this.trimmedString.length -1] !== ')' && this.trimmedString[this.trimmedString.length -1] !== ']'){
-            throw new Error('The end of the range must be ) or ]')
-
-        }
     }
 
     contains(arr){
@@ -77,7 +78,6 @@ class Range {
         return this.trimmedString === r.trimmedString
     }
 }
-
 
 
 module.exports = {

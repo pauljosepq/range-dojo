@@ -2,7 +2,7 @@
   "name": "range-dojo",
   "version": "1.0.0",
   "description": "Initial commit",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "jest test.js"
   },
