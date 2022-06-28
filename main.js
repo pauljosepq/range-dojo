@@ -27,6 +27,16 @@ class Range {
         if (!Number.isInteger(this.start) || !Number.isInteger(this.end)){
             throw new Error('A non-integer value was given')
         }
+
+        if (this.trimmedString[0] !== '(' || this.trimmedString[0] !== '['){
+            throw new Error('The beginning of the range must be ( or [')
+
+        }
+
+        if (this.trimmedString[this.trimmedString.length -1] !== ')' || this.trimmedString[this.trimmedString.length -1] !== ']'){
+            throw new Error('The end of the range must be ) or ]')
+
+        }
     }
 
     contains(arr){
@@ -64,7 +74,7 @@ class Range {
         return endPoints
     }
 
-    Equals(r){
+    equals(r){
         return this.trimmedString === r.trimmedString
     }
 }
