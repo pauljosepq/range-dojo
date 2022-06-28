@@ -2,7 +2,7 @@ class Range {
 
     constructor(range){
         this.range = range
-        this.trimmedString = range.trim()
+        this.trimmedString = this.range.replace(/ /g, '')
         this.start = parseInt(this.trimmedString.slice(1, this.range.indexOf(',')))
         this.end = parseInt(this.trimmedString.slice(this.range.indexOf(',') + 1, -1))
         this.parse()
@@ -54,7 +54,7 @@ class Range {
     }
 
     getAllPoints (){
-        return this.range
+        return Array(this.end - this.start + 1).fill().map((v, i) => this.start + i)
     }
 
     getEndPoints(){
@@ -64,8 +64,8 @@ class Range {
         return endPoints
     }
 
-    Equals(arr){
-        return JSON.stringify(arr) === JSON.stringify(this.range)
+    Equals(r){
+        return this.trimmedString === r.trimmedString
     }
 }
 

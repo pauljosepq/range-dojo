@@ -83,7 +83,7 @@ test('get end points (2,6]', () => {
 
 test('Equal [3, 5)', () => {
     const r1 = new Range('[3, 5)')
-    const r2 = new Range('[3, 5)')
+    const r2 = new Range('[3,5)')
     expect(r1.Equals(r2)).toBeTruthy()
 })
 
