@@ -2,6 +2,22 @@ const { Range } = require('./main')
 const range = '[2, 6)'
 const r = new Range(range)
 
+test('Missing start', ()=>{
+    const range = '2, 6)'
+    const r1 = new Range(range)
+    expect(r1).toThrow('The beginning of the range must be ( or [')
+    expect(r1).toThrow('A non-integer value was given')
+})
+
+test('Missing end', ()=>{
+    const arr = '2, 4'
+    expect(r.contains(arr)).toBeTruthy()
+})
+
+test('Integer range contains', ()=>{
+    const arr = '2, 4'
+    expect(r.contains(arr)).toBeTruthy()
+})
 
 test('Integer range contains', ()=>{
     const arr = '2, 4'
