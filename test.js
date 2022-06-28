@@ -3,12 +3,8 @@ const range = '[2, 6)'
 const r = new Range(range)
 
 test('Missing start', ()=>{
-    try {
-        //const range = '2, 6)'
-        //const r1 = new Range(range)
-    } catch (error) {
-        expect(r1).toThrow(error.message)
-    }
+
+        expect(() => new Range('2, 6)')).toThrowError(new Error('The beginning of the range must be ( or ['))
 })
 
 test('Missing end', ()=>{

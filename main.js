@@ -24,7 +24,7 @@ class Range {
             throw new Error('The beginning of the range must be ( or [')
         }
         
-        if (!Number.isNaN(this.start) || !Number.isNaN(this.end)){
+        if (Number.isNaN(this.start) || Number.isNaN(this.end)){
             throw new Error('A non-integer value was given')
         }
 
@@ -77,6 +77,7 @@ class Range {
         return this.trimmedString === r.trimmedString
     }
 }
+
 
 
 module.exports = {
