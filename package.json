@@ -1,6 +1,6 @@
 {
   "name": "range-dojo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Range Class",
   "main": "main.js",
   "scripts": {

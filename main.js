@@ -1,3 +1,4 @@
+// Range Class
 class Range {
 
     constructor(range){
