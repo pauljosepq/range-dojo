@@ -75,7 +75,7 @@ class Range {
     }
 
     equals(r){
-        return this.trimmedString === r.trimmedString
+        return this.start === r.start && this.end === r.end
     }
 }
 
