@@ -1,5 +1,6 @@
 class Range {
 
+    // Cambio 1
     constructor(range){
         this.range = range
         this.trimmedString = this.range.replace(/ /g, '')
@@ -9,6 +10,7 @@ class Range {
         this.isCorrect()
     }
 
+    // Cambio 2
     parse(){
         if(this.range[0] == '('){
             this.start += 1
@@ -19,6 +21,7 @@ class Range {
         }
     }
 
+    // Rompiendo el código
     isCorrect(){
         if (this.trimmedString[0] !== '(' && this.trimmedString[0] !== '['){
             throw new Error('The beginning of the range must be ( or [')
